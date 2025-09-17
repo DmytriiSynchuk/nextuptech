@@ -1648,3 +1648,9 @@ select:focus {
         color: black !important;
     }
 }
+
+/* Instructor Avatar Sizes */
+.instructor-avatar {
+    width: 120px !important;
+    height: 120px !important;
+}
