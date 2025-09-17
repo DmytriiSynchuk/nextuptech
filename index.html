@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextUpTech - Coding & Technology Education Platform | Learn, Build, Master</title>
+    <meta name="description" content="Master coding and technology with NextUpTech. Access premium online courses, digital templates, and exclusive memberships. Learn from expert instructors and accelerate your tech career.">
+    <meta name="keywords" content="coding courses, technology education, programming tutorials, web development, digital templates, tech memberships, online learning, coding bootcamp">
+    <link rel="canonical" href="https://nextuptech.org/">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="index.html" class="flex items-center min-w-0">
+                        <img src="assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="index.html" class="text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="memberships/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="blog/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="contact/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-blue-900 via-blue-700 to-indigo-900 text-white overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                        Master <span class="text-yellow-400">Coding</span> & <span class="text-yellow-400">Technology</span>
+                    </h1>
+                    <p class="text-xl text-gray-200 leading-relaxed">
+                        Join thousands of developers who've accelerated their careers with our premium courses, cutting-edge templates, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300 transform hover:scale-105">
+                            Start Learning Today
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition duration-300">
+                            Watch Demo
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-8 text-sm text-gray-300">
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-yellow-400 mr-2"></i>
+                            <span>10,000+ Students</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-star text-yellow-400 mr-2"></i>
+                            <span>4.9/5 Rating</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-certificate text-yellow-400 mr-2"></i>
+                            <span>Certified Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-lg rounded-2xl p-8 border border-white border-opacity-20">
+                        <div class="text-center">
+                            <div class="w-24 h-24 bg-yellow-400 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-code text-blue-900 text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Get Started Free</h3>
+                            <p class="text-gray-200 mb-6">Access our free coding resources and start your journey today</p>
+                            <button class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition duration-300 w-full">
+                                Register Now & Get Bonus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg class="w-full h-20 text-white" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,38.43,160,41.5C360.9,92.5,420,90.5,480,90.5c60,0,119.1,2,160,5.5c40.9,3.5,80.1,8.5,120,8.5s79.1-5,120-8.5c40.9-3.5,80.1-8.5,120-8.5s79.1,5,120,8.5c40.9,3.5,80.1,8.5,120,8.5V0Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why Choose NextUpTech?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We provide everything you need to succeed in the tech industry, from beginner-friendly courses to advanced professional tools.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Expert Instructors</h3>
+                    <p class="text-gray-600">Learn from industry professionals with years of real-world experience and proven track records.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-tools text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Premium Tools</h3>
+                    <p class="text-gray-600">Access cutting-edge templates, code snippets, and development tools used by top companies.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-crown text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Exclusive Access</h3>
+                    <p class="text-gray-600">Get premium software licenses and memberships at discounted rates, saving thousands annually.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Preview Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Popular Courses</h2>
+                <p class="text-xl text-gray-600">Master the most in-demand skills with our comprehensive course catalog</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 popular-courses-grid">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Full-Stack Web Development</h3>
+                        <p class="text-gray-600 mb-4">Master React, Node.js, and modern web technologies</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$199</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300" data-book-now>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Mobile App Development</h3>
+                        <p class="text-gray-600 mb-4">Build iOS and Android apps with React Native</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$149</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300" data-book-now>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Machine Learning & AI</h3>
+                        <p class="text-gray-600 mb-4">Dive deep into artificial intelligence and data science</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">$299</span>
+                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300" data-book-now>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="courses/index.html" class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                    View All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
+                <p class="text-xl text-gray-600">Real success stories from our community</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 testimonials-grid">
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"NextUpTech transformed my career. The courses are comprehensive and the instructors are amazing. I landed my dream job as a full-stack developer!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                            JS
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-900">Jessica Smith</h4>
+                            <p class="text-gray-600">Full-Stack Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The templates and tools saved me months of development time. The quality is exceptional and the support is outstanding."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                            MR
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-900">Mike Rodriguez</h4>
+                            <p class="text-gray-600">UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6">"The membership deals are incredible. I've saved over $2000 on software licenses this year alone. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                            AL
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-900">Alex Lee</h4>
+                            <p class="text-gray-600">Freelance Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to Level Up Your Tech Skills?</h2>
+            <p class="text-xl mb-8 text-blue-100">Join thousands of developers who've already transformed their careers</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    Start Free Trial
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    View Pricing
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="index.html" class="flex items-center">
+                            <img src="assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Courses -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Courses</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Web Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Mobile Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Data Science</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">AI & ML</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="memberships/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Memberships</a></li>
+                        <li><a href="blog/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Blog</a></li>
+                        <li><a href="contact/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Book Session</h3>
+                <button id="closeBookingModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="bookingForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input type="text" id="bookingName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="bookingEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <input type="tel" id="bookingPhone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Booking Date</label>
+                    <input type="date" id="bookingDate" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Comments (Optional)</label>
+                    <textarea id="bookingComments" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Book Session
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Booking Confirmed!</h3>
+            <p class="text-gray-600 mb-6">We'll get back to you ASAP via email.</p>
+            <button id="closeConfirmationModal" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Cookies Banner -->
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
