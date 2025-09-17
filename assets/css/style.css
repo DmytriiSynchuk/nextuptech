@@ -1,0 +1,1650 @@
+/* Custom CSS for NextUpTech */
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Root Variables */
+:root {
+    --primary-blue: #2563eb;
+    --primary-green: #059669;
+    --primary-yellow: #fbbf24;
+    --primary-purple: #7c3aed;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-light: #f9fafb;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation Responsive Fixes */
+.nav-container {
+    overflow-x: hidden;
+}
+
+.nav-logo {
+    min-width: 0;
+    flex-shrink: 0;
+}
+
+.nav-logo img {
+    flex-shrink: 0;
+}
+
+.nav-logo span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-links {
+    min-width: 0;
+    flex: 1;
+}
+
+.nav-links a {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-buttons {
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.nav-buttons button {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-mobile {
+    flex-shrink: 0;
+}
+
+/* Prevent horizontal scrolling on small screens */
+@media (max-width: 640px) {
+    .nav-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .nav-logo span {
+        font-size: 1rem;
+    }
+    
+    .nav-logo img {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+}
+
+/* Custom Button Styles */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: var(--primary-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Hero Section Enhancements */
+.hero-gradient {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+}
+
+.hero-text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Hover Effects */
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out;
+}
+
+.animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Form Styles */
+.form-input {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-purple));
+}
+
+/* Course Cards */
+.course-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.course-card:hover::before {
+    opacity: 1;
+}
+
+/* Feature Icons */
+.feature-icon {
+    transition: all 0.3s ease;
+}
+
+.feature-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile-First Responsive Design */
+
+/* Extra Small Devices (phones, 480px and down) */
+@media (max-width: 480px) {
+    /* Typography */
+    .hero-title {
+        font-size: 1.75rem !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+    
+    /* Navigation */
+    .nav-logo span {
+        font-size: 0.875rem !important;
+    }
+    
+    .nav-logo img {
+        height: 1.25rem !important;
+        width: 1.25rem !important;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px 16px !important;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Spacing */
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Modals */
+    .modal-content {
+        margin: 0.5rem !important;
+        padding: 1rem !important;
+    }
+    
+    /* Footer */
+    footer .text-xl {
+        font-size: 1rem !important;
+    }
+    
+    footer .text-lg {
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Small Devices (phones, 640px and down) */
+@media (max-width: 640px) {
+    /* Typography */
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+    
+    /* Navigation */
+    .nav-logo span {
+        font-size: 1rem !important;
+    }
+    
+    .nav-logo img {
+        height: 1.5rem !important;
+        width: 1.5rem !important;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Spacing */
+    .py-20 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+    
+    /* Modals */
+    .modal-content {
+        margin: 1rem !important;
+        padding: 1.5rem !important;
+    }
+    
+    /* Grid adjustments */
+    .grid-cols-1 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Text sizing */
+    .text-5xl {
+        font-size: 2.5rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 2rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.75rem !important;
+    }
+    
+    .text-2xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-xl {
+        font-size: 1.125rem !important;
+    }
+}
+
+/* Medium Devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    /* Typography */
+    .hero-title {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    .section-title {
+        font-size: 2rem !important;
+    }
+    
+    /* Grid adjustments */
+    .md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .md\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .md\:grid-cols-4 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Flex adjustments */
+    .md\:flex-row {
+        flex-direction: column !important;
+    }
+    
+    .md\:text-left {
+        text-align: center !important;
+    }
+    
+    .md\:justify-start {
+        justify-content: center !important;
+    }
+    
+    /* Spacing */
+    .md\:space-x-4 > * + * {
+        margin-left: 0 !important;
+        margin-top: 1rem !important;
+    }
+    
+    .md\:space-x-6 > * + * {
+        margin-left: 0 !important;
+        margin-top: 1.5rem !important;
+    }
+    
+    /* Padding adjustments */
+    .md\:px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .md\:px-8 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Text sizing */
+    .text-5xl {
+        font-size: 3rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 2.25rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 2rem !important;
+    }
+}
+
+/* Large Devices (desktops, 1024px and down) */
+@media (max-width: 1024px) {
+    /* Container adjustments */
+    .max-w-7xl {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .max-w-4xl {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Grid adjustments for large screens */
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Mobile Navigation Enhancements */
+@media (max-width: 768px) {
+    /* Mobile menu improvements */
+    #mobileMenu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        z-index: 40 !important;
+    }
+    
+    /* Mobile menu items */
+    #mobileMenu a {
+        display: block !important;
+        padding: 0.75rem 1rem !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }
+    
+    #mobileMenu a:last-child {
+        border-bottom: none !important;
+    }
+    
+    /* Mobile menu hover states */
+    #mobileMenu a:hover {
+        background-color: #f9fafb !important;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    /* Larger touch targets */
+    button, a {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    /* Input improvements */
+    input, textarea, select {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+    
+    /* Better spacing for touch */
+    .space-y-4 > * + * {
+        margin-top: 1rem !important;
+    }
+    
+    .space-y-6 > * + * {
+        margin-top: 1.5rem !important;
+    }
+    
+    .space-y-8 > * + * {
+        margin-top: 2rem !important;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .py-20 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    .hero-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+}
+
+.shadow-custom {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-custom-lg {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrollbar Styling */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; /* Set height for horizontal scrollbars */
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+/* Ensure scrollbar styles apply to all elements */
+*::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; /* Set height for horizontal scrollbars */
+}
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #1d4ed8;
+}
+
+/* Cookie Banner Consistency */
+#cookiesBanner p {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+}
+
+#cookiesBanner p a {
+    font-size: 0.875rem !important;
+}
+
+#cookiesBanner button {
+    font-size: 0.875rem !important;
+}
+
+/* Footer Social Icons Consistency */
+footer .fab {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.125rem !important;
+}
+
+/* Popular Courses - Price and Button Alignment */
+.popular-courses-grid {
+    align-items: stretch !important;
+}
+
+.popular-courses-grid .bg-white {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.popular-courses-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.popular-courses-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.popular-courses-grid .flex.items-center.justify-between {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 3rem !important;
+}
+
+.popular-courses-grid button {
+    white-space: nowrap !important;
+    min-width: 6rem !important;
+    text-align: center !important;
+}
+
+/* Testimonials - Student Name and Role Alignment */
+.testimonials-grid {
+    align-items: stretch !important;
+}
+
+.testimonials-grid .bg-gray-50 {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.testimonials-grid .p-8 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.testimonials-grid .text-gray-700 {
+    flex: 1 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.testimonials-grid .flex.items-center:last-child {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 4rem !important;
+}
+
+.testimonials-grid .w-12 {
+    flex-shrink: 0 !important;
+}
+
+.testimonials-grid .ml-4 {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+/* Course Categories - Single Line Layout */
+.course-categories-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+}
+
+@media (min-width: 768px) {
+    .course-categories-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+.course-categories-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.course-categories-grid button {
+    margin-top: auto !important;
+    width: 100% !important;
+}
+
+/* Instructors - Three Groups in Single Line */
+.instructors-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+}
+
+@media (min-width: 640px) {
+    .instructors-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+.instructors-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.instructors-grid .space-y-2 {
+    margin-top: auto !important;
+}
+
+/* More Courses - Price and Button Alignment */
+.more-courses-grid {
+    align-items: stretch !important;
+}
+
+.more-courses-grid .bg-white {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.more-courses-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.more-courses-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.more-courses-grid .flex.items-center.justify-between {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 3rem !important;
+}
+
+.more-courses-grid .text-2xl {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+.more-courses-grid button {
+    white-space: nowrap !important;
+    min-width: 6rem !important;
+    text-align: center !important;
+}
+
+/* More Courses - Vertical Layout for Small Screens */
+@media (max-width: 639px) {
+    .more-courses-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .more-courses-grid > div {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Featured Templates - Mobile Information Layout */
+@media (max-width: 480px) {
+    /* Featured Templates info section - stack vertically on very small screens */
+    .featured-templates .flex.items-center.space-x-6 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    
+    .featured-templates .flex.items-center.space-x-6 > div {
+        margin: 0 0 0.5rem 0 !important;
+    }
+    
+    /* Price section adjustments */
+    .featured-templates .text-right {
+        text-align: left !important;
+        margin-top: 1rem !important;
+    }
+    
+    /* Button section adjustments */
+    .featured-templates .flex.space-x-4 {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .featured-templates .flex.space-x-4 button {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Featured Courses - Mobile Information Layout */
+@media (max-width: 480px) {
+    /* Featured Courses info section - stack vertically on very small screens */
+    .featured-courses .flex.items-center.space-x-6 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    
+    .featured-courses .flex.items-center.space-x-6 > div {
+        margin: 0 0 0.5rem 0 !important;
+    }
+    
+    /* Price section adjustments */
+    .featured-courses .text-right {
+        text-align: left !important;
+        margin-top: 1rem !important;
+    }
+    
+    /* Button section adjustments */
+    .featured-courses .flex.space-x-4 {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .featured-courses .flex.space-x-4 button {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Templates Grid - Price and Button Alignment */
+.templates-grid {
+    align-items: stretch !important;
+}
+
+.templates-grid .bg-white {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.templates-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.templates-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.templates-grid .flex.items-center.justify-between {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 3rem !important;
+}
+
+.templates-grid .text-2xl {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+.templates-grid button {
+    white-space: nowrap !important;
+    min-width: 6rem !important;
+    text-align: center !important;
+}
+
+/* Templates Grid - Mobile Vertical Layout */
+@media (max-width: 768px) {
+    .templates-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .templates-grid > div {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Featured Creators - Same Line Layout */
+.featured-creators-grid {
+    align-items: stretch !important;
+}
+
+.featured-creators-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.featured-creators-grid .text-sm {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+/* License Types - Same Line Layout */
+.license-types-grid {
+    align-items: stretch !important;
+}
+
+.license-types-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.license-types-grid ul {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.license-types-grid .text-center:last-child {
+    margin-top: auto !important;
+}
+
+/* Featured Memberships - Mobile Information Layout */
+@media (max-width: 480px) {
+    /* Featured Memberships info section - stack vertically on very small screens */
+    .featured-memberships .flex.items-center.space-x-6 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+    }
+    
+    .featured-memberships .flex.items-center.space-x-6 > div {
+        margin: 0 0 0.5rem 0 !important;
+    }
+    
+    /* Price section adjustments */
+    .featured-memberships .text-right {
+        text-align: left !important;
+        margin-top: 1rem !important;
+    }
+    
+    /* Button section adjustments */
+    .featured-memberships .flex.space-x-4 {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+    }
+    
+    .featured-memberships .flex.space-x-4 button {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+}
+
+/* Memberships Grid - Price and Button Alignment */
+.memberships-grid {
+    align-items: stretch !important;
+}
+
+.memberships-grid .bg-white {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.memberships-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.memberships-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.memberships-grid .flex.items-center.justify-between {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 3rem !important;
+}
+
+.memberships-grid .text-2xl {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+}
+
+.memberships-grid button {
+    white-space: nowrap !important;
+    min-width: 6rem !important;
+    text-align: center !important;
+}
+
+/* Memberships Grid - Mobile Vertical Layout */
+@media (max-width: 768px) {
+    .memberships-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .memberships-grid > div {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Duration Options Grid - Single Line Layout */
+.duration-options-grid {
+    align-items: stretch !important;
+}
+
+.duration-options-grid .bg-white {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.duration-options-grid .p-8 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.duration-options-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.duration-options-grid ul {
+    margin-top: auto !important;
+}
+
+/* Duration Options - Single Line on All Screens */
+@media (min-width: 768px) {
+    .duration-options-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 2rem !important;
+    }
+}
+
+/* Duration Options - Mobile Vertical Layout */
+@media (max-width: 767px) {
+    .duration-options-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .duration-options-grid > div {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Latest Articles Grid - Author Info and Button Alignment */
+.latest-articles-grid {
+    align-items: stretch !important;
+}
+
+.latest-articles-grid article {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.latest-articles-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.latest-articles-grid .text-gray-600 {
+    flex: 1 !important;
+}
+
+.latest-articles-grid .flex.items-center.justify-between {
+    margin-top: auto !important;
+    align-items: center !important;
+    min-height: 2.5rem !important;
+}
+
+.latest-articles-grid .flex.items-center {
+    align-items: center !important;
+}
+
+.latest-articles-grid .w-8.h-8 {
+    flex-shrink: 0 !important;
+}
+
+.latest-articles-grid .text-sm {
+    white-space: nowrap !important;
+}
+
+.latest-articles-grid a {
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+}
+
+/* Latest Articles - Mobile Vertical Layout */
+@media (max-width: 768px) {
+    .latest-articles-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .latest-articles-grid > article {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Related Articles Grid - Button Alignment */
+.related-articles-grid {
+    align-items: stretch !important;
+}
+
+.related-articles-grid article {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.related-articles-grid .p-6 {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+.related-articles-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.related-articles-grid a {
+    margin-top: auto !important;
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+}
+
+/* Related Articles - Mobile Vertical Layout */
+@media (max-width: 768px) {
+    .related-articles-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .related-articles-grid > article {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Contact Methods Grid - Parameter Alignment */
+.contact-methods-grid {
+    align-items: stretch !important;
+}
+
+.contact-methods-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+}
+
+.contact-methods-grid .text-gray-600 {
+    flex: 1 !important;
+    margin-bottom: 1rem !important;
+}
+
+.contact-methods-grid .mb-4 {
+    margin-top: auto !important;
+    margin-bottom: 1rem !important;
+}
+
+.contact-methods-grid button {
+    margin-top: auto !important;
+    white-space: nowrap !important;
+    min-width: 8rem !important;
+    text-align: center !important;
+}
+
+/* Contact Methods - Mobile Vertical Layout */
+@media (max-width: 768px) {
+    .contact-methods-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .contact-methods-grid > div {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    /* Popular Courses mobile layout */
+    .popular-courses-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+    }
+    
+    .popular-courses-grid > * {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Popular Courses card mobile optimization */
+    .popular-courses-grid .bg-white {
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+    }
+    
+    .popular-courses-grid .h-48 {
+        height: 12rem !important; /* Slightly taller on mobile for better visual impact */
+    }
+    
+    .popular-courses-grid .p-6 {
+        padding: 1.5rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        flex: 1 !important;
+    }
+    
+    .popular-courses-grid .text-xl {
+        font-size: 1.25rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .popular-courses-grid .text-gray-600 {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+        flex: 1 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Ensure price and button alignment */
+    .popular-courses-grid .flex.items-center.justify-between {
+        margin-top: auto !important;
+        align-items: center !important;
+        min-height: 3rem !important;
+    }
+    
+    .popular-courses-grid .text-2xl {
+        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+    }
+    
+    .popular-courses-grid button {
+        white-space: nowrap !important;
+        min-width: 6rem !important;
+        text-align: center !important;
+    }
+    
+    /* Testimonials mobile optimization */
+    .testimonials-grid .bg-gray-50 {
+        margin-bottom: 1.5rem !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .testimonials-grid .p-8 {
+        padding: 1.5rem !important;
+    }
+    
+    .testimonials-grid .text-gray-700 {
+        font-size: 0.95rem !important;
+        line-height: 1.5 !important;
+    }
+    
+    .testimonials-grid .flex.items-center:last-child {
+        min-height: 3.5rem !important;
+    }
+    
+    .testimonials-grid .w-12 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+    }
+    
+    .testimonials-grid .ml-4 {
+        margin-left: 0.75rem !important;
+    }
+    
+    /* Better mobile containers */
+    .max-w-7xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .max-w-4xl {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    /* Mobile hero sections */
+    .hero-section {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    /* Mobile cards */
+    .card {
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Mobile forms */
+    .form-input {
+        width: 100% !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Mobile tables */
+    .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    /* Mobile images */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Mobile buttons */
+    .btn-mobile {
+        width: 100% !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Mobile text alignment */
+    .text-center-mobile {
+        text-align: center !important;
+    }
+    
+    /* Mobile spacing */
+    .mobile-spacing {
+        padding: 1rem !important;
+    }
+    
+    /* Mobile footer */
+    footer {
+        text-align: center !important;
+    }
+    
+    footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Mobile navigation improvements */
+    nav {
+        position: relative !important;
+    }
+    
+    .nav-container {
+        padding: 0 1rem !important;
+    }
+    
+    /* Mobile menu button */
+    #mobileMenuBtn {
+        padding: 0.5rem !important;
+        border-radius: 0.375rem !important;
+    }
+    
+    /* Mobile menu positioning */
+    #mobileMenu {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: white !important;
+        border-top: 1px solid #e5e7eb !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    /* Even more compact spacing */
+    .py-20 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    
+    /* Smaller text on very small screens */
+    .text-5xl {
+        font-size: 1.75rem !important;
+    }
+    
+    .text-4xl {
+        font-size: 1.5rem !important;
+    }
+    
+    .text-3xl {
+        font-size: 1.25rem !important;
+    }
+    
+    /* Compact navigation */
+    .nav-logo span {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Compact buttons */
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.875rem !important;
+    }
+    
+    /* Compact forms */
+    .form-input {
+        padding: 0.75rem !important;
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Tablet portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Tablet-specific adjustments */
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .md\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* Tablet spacing */
+    .py-20 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    
+    .py-16 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Ensure crisp images on retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+    /* Future dark mode styles can be added here */
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus States */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .hero-section {
+        background: white !important;
+        color: black !important;
+    }
+}

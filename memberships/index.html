@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Memberships & Software Licenses | NextUpTech - Premium Tech Subscriptions</title>
+    <meta name="description" content="Get premium software licenses and digital memberships at discounted rates. Adobe Creative Cloud, Microsoft 365, Notion AI, VPN services, and more. Save thousands annually.">
+    <meta name="keywords" content="software licenses, digital memberships, adobe creative cloud, microsoft 365, notion ai, vpn services, premium subscriptions, tech licenses, software deals">
+    <link rel="canonical" href="https://nextuptech.org/memberships/">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="../index.html" class="flex items-center min-w-0">
+                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="../index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="index.html" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="../contact/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-green-900 via-green-700 to-green-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-6">Premium Digital Memberships</h1>
+                <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    Access premium software licenses and digital services at exclusive discounted rates. Save thousands annually on essential tech tools.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                        Browse Memberships
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-900 transition duration-300">
+                        View Savings Calculator
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Membership Categories</h2>
+                <p class="text-xl text-gray-600">Choose from our curated selection of premium digital services</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Creative Software</h3>
+                    <p class="text-gray-600">Adobe Creative Cloud, Figma, Sketch, and more</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fab fa-microsoft text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Productivity Tools</h3>
+                    <p class="text-gray-600">Microsoft 365, Notion AI, Slack, and more</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Security & VPN</h3>
+                    <p class="text-gray-600">Premium VPN services, antivirus, and security tools</p>
+                </div>
+                <div class="text-center p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-music text-pink-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Entertainment</h3>
+                    <p class="text-gray-600">Spotify, YouTube Premium, Netflix, and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Memberships -->
+    <section class="py-16 bg-gray-50 featured-memberships">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Memberships</h2>
+                <p class="text-xl text-gray-600">Most popular premium services with exclusive discounts</p>
+            </div>
+            
+            <!-- Adobe Creative Cloud -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                <div class="md:flex">
+                    <div class="md:w-1/3">
+                        <div class="h-64 md:h-full bg-gradient-to-br from-yellow-500 to-red-600 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-8xl"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Creative Software</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium ml-2">50% OFF</span>
+                            <span class="ml-4 text-yellow-500">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="text-gray-600 ml-2">4.9 (2,156 reviews)</span>
+                            </span>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Adobe Creative Cloud All Apps</h3>
+                        <p class="text-gray-600 mb-6 text-lg">
+                            Complete creative suite with Photoshop, Illustrator, Premiere Pro, After Effects, and 20+ professional applications. Perfect for designers, developers, and content creators.
+                        </p>
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center space-x-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-calendar text-gray-500 mr-2"></i>
+                                    <span class="text-gray-600">1 Year License</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-download text-gray-500 mr-2"></i>
+                                    <span class="text-gray-600">20+ Apps</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-cloud text-gray-500 mr-2"></i>
+                                    <span class="text-gray-600">100GB Storage</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold text-yellow-600">$299</div>
+                                <div class="text-sm text-gray-500 line-through">$599</div>
+                                <div class="text-sm text-green-600 font-semibold">Save $300</div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition duration-300">
+                                Get License
+                            </button>
+                            <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memberships Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 memberships-grid">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fab fa-microsoft text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Productivity</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">30% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Microsoft 365 Family</h3>
+                        <p class="text-gray-600 mb-4">Office apps, 1TB OneDrive storage, and premium features for up to 6 users</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">1 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-blue-600">$69</div>
+                                <div class="text-sm text-gray-500 line-through">$99</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">AI Tools</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">40% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Notion AI Pro</h3>
+                        <p class="text-gray-600 mb-4">Advanced AI writing assistant and workspace management for teams</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">1 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-purple-600">$59</div>
+                                <div class="text-sm text-gray-500 line-through">$99</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Security</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">60% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">NordVPN Premium</h3>
+                        <p class="text-gray-600 mb-4">Advanced VPN with malware protection and secure browsing</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">2 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-green-600">$39</div>
+                                <div class="text-sm text-gray-500 line-through">$99</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                        <i class="fab fa-spotify text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-pink-100 text-pink-800 px-2 py-1 rounded text-xs font-medium">Music</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">50% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Spotify Premium</h3>
+                        <p class="text-gray-600 mb-4">Ad-free music streaming with offline downloads and high quality audio</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">1 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-pink-600">$59</div>
+                                <div class="text-sm text-gray-500 line-through">$119</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                        <i class="fab fa-youtube text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">Video</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">45% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">YouTube Premium</h3>
+                        <p class="text-gray-600 mb-4">Ad-free YouTube with background play and offline downloads</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">1 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-red-600">$79</div>
+                                <div class="text-sm text-gray-500 line-through">$143</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">AI</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium ml-2">35% OFF</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Grammarly Premium</h3>
+                        <p class="text-gray-600 mb-4">Advanced writing assistant with AI-powered suggestions and plagiarism detection</p>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="text-sm text-gray-500">1 Year License</div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-indigo-600">$77</div>
+                                <div class="text-sm text-gray-500 line-through">$119</div>
+                            </div>
+                        </div>
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
+                            Get License
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activation Methods -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Easy Activation Methods</h2>
+                <p class="text-xl text-gray-600">Multiple ways to activate your digital memberships</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-key text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Redeem Key</h3>
+                    <p class="text-gray-600">Receive a license key via email and redeem it directly on the service provider's website.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-envelope text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Email-Linked</h3>
+                    <p class="text-gray-600">We'll create an account for you and send login credentials directly to your email address.</p>
+                </div>
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-gift text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Gift to Others</h3>
+                    <p class="text-gray-600">Purchase memberships as gifts and send them to friends, family, or team members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Duration Options -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Flexible Duration Options</h2>
+                <p class="text-xl text-gray-600">Choose the plan that works best for your needs</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 duration-options-grid">
+                <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">1 Month</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-4">$19-49</div>
+                    <p class="text-gray-600 mb-6">Perfect for trying out new services or short-term projects</p>
+                    <ul class="space-y-2 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Full access to all features</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Instant activation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Email support</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg text-center border-2 border-green-500 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-medium">Best Value</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">3 Months</h3>
+                    <div class="text-4xl font-bold text-green-600 mb-4">$39-99</div>
+                    <p class="text-gray-600 mb-6">Great balance of savings and flexibility</p>
+                    <ul class="space-y-2 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Save up to 30% vs monthly</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Auto-renewal option</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg text-center">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">1 Year</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-4">$99-299</div>
+                    <p class="text-gray-600 mb-6">Maximum savings for long-term users</p>
+                    <ul class="space-y-2 text-left">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Save up to 60% vs monthly</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Premium support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span>Free gift options</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Start Saving on Premium Software Today</h2>
+            <p class="text-xl mb-8 text-green-100">Join thousands of users who save thousands annually</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    Browse All Memberships
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-600 transition duration-300">
+                    Calculate Your Savings
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="../index.html" class="flex items-center">
+                            <img src="../assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Memberships -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Memberships</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Creative Software</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Productivity Tools</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Security & VPN</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Entertainment</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../courses/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Courses</a></li>
+                        <li><a href="../templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="../blog/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Blog</a></li>
+                        <li><a href="../contact/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="../privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="../terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="../cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include modals and scripts -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="../cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Security Best Practices: Protecting Your Applications in 2024 | NextUpTech</title>
+    <meta name="description" content="Essential security measures every developer should implement to protect their web applications from common threats. OWASP guidelines, authentication, and modern security practices.">
+    <meta name="keywords" content="web security, OWASP, application security, cybersecurity, authentication, data protection, security best practices">
+    <link rel="canonical" href="https://nextuptech.org/blog/web-security-best-practices-2024/">
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="../../index.html" class="flex items-center min-w-0">
+                        <img src="../../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="../../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="../../index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="../index.html" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="bg-gradient-to-br from-green-900 via-green-700 to-green-900 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Security</span>
+                    <span class="ml-4 text-gray-300">January 1, 2024</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Web Security Best Practices: Protecting Your Applications in 2024</h1>
+                <p class="text-xl text-gray-200 mb-8">
+                    Essential security measures every developer should implement to protect their web applications from common threats.
+                </p>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                        JS
+                    </div>
+                    <div class="ml-4 text-left">
+                        <h3 class="font-semibold">Jessica Smith</h3>
+                        <p class="text-gray-300">Security Engineer at Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl text-gray-600 mb-8">
+                    Web security is more critical than ever in 2024. With cyber threats becoming increasingly sophisticated, developers must implement comprehensive security measures to protect their applications and users. This guide covers essential security practices that every developer should know and implement.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The OWASP Top 10 for 2024</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    The Open Web Application Security Project (OWASP) Top 10 is a standard awareness document for developers and web application security. Understanding these vulnerabilities is the first step in building secure applications.
+                </p>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+                    <h3 class="text-xl font-semibold text-red-900 mb-3">Critical Security Risks</h3>
+                    <ol class="text-red-800 space-y-2 list-decimal list-inside">
+                        <li><strong>Broken Access Control:</strong> Improperly implemented access controls</li>
+                        <li><strong>Cryptographic Failures:</strong> Weak or missing encryption</li>
+                        <li><strong>Injection:</strong> SQL, NoSQL, and command injection attacks</li>
+                        <li><strong>Insecure Design:</strong> Missing or ineffective security controls</li>
+                        <li><strong>Security Misconfiguration:</strong> Improper security settings</li>
+                        <li><strong>Vulnerable Components:</strong> Outdated or vulnerable dependencies</li>
+                        <li><strong>Authentication Failures:</strong> Weak authentication mechanisms</li>
+                        <li><strong>Software and Data Integrity:</strong> Code and data integrity failures</li>
+                        <li><strong>Logging and Monitoring Failures:</strong> Insufficient logging and monitoring</li>
+                        <li><strong>Server-Side Request Forgery:</strong> SSRF vulnerabilities</li>
+                    </ol>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Authentication and Authorization</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Proper authentication and authorization are fundamental to web security. Implement robust mechanisms to verify user identity and control access to resources.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Multi-Factor Authentication (MFA)</h3>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-blue-900 mb-3">MFA Implementation</h4>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded text-sm overflow-x-auto"><code>// Example MFA implementation with TOTP
+const speakeasy = require('speakeasy');
+const QRCode = require('qrcode');
+
+// Generate secret for user
+const secret = speakeasy.generateSecret({
+    name: 'MyApp (user@example.com)',
+    issuer: 'MyApp'
+});
+
+// Generate QR code for setup
+const qrCodeUrl = await QRCode.toDataURL(secret.otpauth_url);
+
+// Verify TOTP token
+const verified = speakeasy.totp.verify({
+    secret: user.secret,
+    encoding: 'base32',
+    token: userProvidedToken,
+    window: 2 // Allow 2 time steps tolerance
+});</code></pre>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Password Security</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Password Hashing Best Practices</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>const bcrypt = require('bcrypt');
+const crypto = require('crypto');
+
+// Hash password with salt
+const saltRounds = 12;
+const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+// Verify password
+const isValid = await bcrypt.compare(password, hashedPassword);
+
+// Generate secure random password
+const generateSecurePassword = (length = 16) => {
+    return crypto.randomBytes(length).toString('hex');
+};
+
+// Password strength validation
+const validatePasswordStrength = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumbers = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    
+    return password.length >= minLength && 
+           hasUpperCase && 
+           hasLowerCase && 
+           hasNumbers && 
+           hasSpecialChar;
+};</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Input Validation and Sanitization</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Never trust user input. Always validate, sanitize, and escape data from external sources to prevent injection attacks and other security vulnerabilities.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">SQL Injection Prevention</h3>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-yellow-900 mb-3">Parameterized Queries</h4>
+                    <pre class="bg-gray-800 text-yellow-400 p-4 rounded text-sm overflow-x-auto"><code>// Bad: String concatenation (vulnerable to SQL injection)
+const query = `SELECT * FROM users WHERE id = ${userId}`;
+
+// Good: Parameterized queries
+const query = 'SELECT * FROM users WHERE id = ?';
+const result = await db.query(query, [userId]);
+
+// Using prepared statements
+const stmt = await db.prepare('SELECT * FROM users WHERE email = ? AND status = ?');
+const user = await stmt.get(email, 'active');
+stmt.finalize();</code></pre>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Input Validation</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Comprehensive Input Validation</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>const Joi = require('joi');
+const validator = require('validator');
+
+// Define validation schema
+const userSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().min(8).pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/).required(),
+    age: Joi.number().integer().min(13).max(120).required(),
+    phone: Joi.string().pattern(/^\+?[\d\s-()]+$/).optional()
+});
+
+// Validate input
+const { error, value } = userSchema.validate(userInput);
+if (error) {
+    throw new Error(`Validation error: ${error.details[0].message}`);
+}
+
+// Sanitize HTML content
+const sanitizedHtml = validator.escape(userInput.htmlContent);
+
+// Validate and sanitize email
+const isValidEmail = validator.isEmail(email);
+const normalizedEmail = validator.normalizeEmail(email);</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">HTTPS and Transport Security</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Encrypt all data in transit using HTTPS and implement proper certificate management. This protects sensitive information from interception and tampering.
+                </p>
+
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-green-900 mb-3">HTTPS Implementation</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li>• Use TLS 1.3 or higher</li>
+                        <li>• Implement HSTS (HTTP Strict Transport Security)</li>
+                        <li>• Use strong cipher suites</li>
+                        <li>• Implement certificate pinning for mobile apps</li>
+                        <li>• Regular certificate renewal and monitoring</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Content Security Policy (CSP)</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    CSP is a security feature that helps prevent cross-site scripting (XSS) attacks by controlling which resources can be loaded and executed.
+                </p>
+
+                <div class="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-purple-900 mb-3">CSP Implementation</h3>
+                    <pre class="bg-gray-800 text-purple-400 p-4 rounded text-sm overflow-x-auto"><code>// Express.js CSP middleware
+const helmet = require('helmet');
+
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        imgSrc: ["'self'", "data:", "https:"],
+        scriptSrc: ["'self'"],
+        connectSrc: ["'self'"],
+        frameSrc: ["'none'"],
+        objectSrc: ["'none'"],
+        upgradeInsecureRequests: []
+    }
+}));
+
+// Report-only mode for testing
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        reportUri: '/csp-report'
+    },
+    reportOnly: true
+}));</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Security Headers</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Implement comprehensive security headers to protect against various attack vectors and improve your application's security posture.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Essential Security Headers</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>// Security headers configuration
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            styleSrc: ["'self'", "'unsafe-inline'"]
+        }
+    },
+    hsts: {
+        maxAge: 31536000,
+        includeSubDomains: true,
+        preload: true
+    },
+    noSniff: true,
+    xssFilter: true,
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+    frameguard: { action: 'deny' }
+}));
+
+// Additional security headers
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
+    next();
+});</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Session Management</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Proper session management is crucial for maintaining security. Implement secure session handling to prevent session hijacking and fixation attacks.
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-yellow-900 mb-3">Secure Session Configuration</h3>
+                    <pre class="bg-gray-800 text-yellow-400 p-4 rounded text-sm overflow-x-auto"><code>const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+
+app.use(session({
+    store: new RedisStore({
+        client: redisClient,
+        ttl: 86400 // 24 hours
+    }),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    name: 'sessionId', // Don't use default 'connect.sid'
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000, // 24 hours
+        sameSite: 'strict'
+    },
+    rolling: true // Reset expiration on activity
+}));
+
+// Regenerate session ID after login
+app.post('/login', (req, res) => {
+    // ... authentication logic
+    req.session.regenerate((err) => {
+        if (err) throw err;
+        req.session.userId = user.id;
+        res.redirect('/dashboard');
+    });
+});</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Dependency Security</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Keep your dependencies up to date and regularly scan for vulnerabilities. Outdated packages are a common attack vector.
+                </p>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Dependency Security Tools</h3>
+                    <ul class="text-red-800 space-y-2">
+                        <li>• <strong>npm audit:</strong> Built-in vulnerability scanner</li>
+                        <li>• <strong>Snyk:</strong> Comprehensive security monitoring</li>
+                        <li>• <strong>Dependabot:</strong> Automated dependency updates</li>
+                        <li>• <strong>OWASP Dependency Check:</strong> Open source scanner</li>
+                        <li>• <strong>Retire.js:</strong> JavaScript library vulnerability scanner</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Logging and Monitoring</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Implement comprehensive logging and monitoring to detect security incidents and respond quickly to threats.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Security Event Logging</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>const winston = require('winston');
+
+// Configure security logger
+const securityLogger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.File({ filename: 'security.log' }),
+        new winston.transports.Console()
+    ]
+});
+
+// Log security events
+const logSecurityEvent = (event, details) => {
+    securityLogger.info({
+        event,
+        timestamp: new Date().toISOString(),
+        ip: req.ip,
+        userAgent: req.get('User-Agent'),
+        userId: req.user?.id,
+        ...details
+    });
+};
+
+// Example usage
+app.post('/login', (req, res) => {
+    if (loginSuccessful) {
+        logSecurityEvent('LOGIN_SUCCESS', { userId: user.id });
+    } else {
+        logSecurityEvent('LOGIN_FAILED', { email: req.body.email });
+    }
+});</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Web security is an ongoing process that requires constant vigilance and regular updates. Implement these practices as a foundation, but remember that security is not a one-time setup—it's a continuous effort.
+                </p>
+
+                <p class="text-gray-700 mb-8">
+                    Stay updated with the latest security threats and best practices. Regular security audits, penetration testing, and team training are essential for maintaining a strong security posture. Remember, security is everyone's responsibility.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">About the Author</h3>
+                    <p class="text-gray-700">
+                        Jessica Smith is a Security Engineer at Google with over 10 years of experience in web application security. She specializes in secure coding practices, threat modeling, and security architecture. Follow her on Twitter @jessicasecurity for more security insights and updates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Related Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 related-articles-grid">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">The Future of AI in Web Development</h3>
+                        <p class="text-gray-600 mb-4">Explore how artificial intelligence is revolutionizing web development in 2024.</p>
+                        <a href="../ai-web-development-2024/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Building Cross-Platform Apps with React Native</h3>
+                        <p class="text-gray-600 mb-4">Learn how to create powerful mobile applications that work seamlessly on both iOS and Android.</p>
+                        <a href="../react-native-cross-platform-guide/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Mastering TypeScript: Advanced Patterns</h3>
+                        <p class="text-gray-600 mb-4">Dive deep into TypeScript's advanced features and learn how to write more maintainable code.</p>
+                        <a href="../typescript-advanced-patterns/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="../../index.html" class="flex items-center">
+                            <img src="../../assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blog Categories -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Blog Categories</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Web Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Mobile Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">AI & Machine Learning</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Cloud Computing</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../../courses/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Courses</a></li>
+                        <li><a href="../../templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="../../memberships/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Memberships</a></li>
+                        <li><a href="../../contact/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="../../privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="../../terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="../../cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include modals and scripts -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="../../cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | NextUpTech - Get Help and Support</title>
+    <meta name="description" content="Contact NextUpTech for support, questions, or feedback. Get help with courses, templates, memberships, or technical issues. We're here to help you succeed.">
+    <meta name="keywords" content="contact NextUpTech, customer support, help desk, technical support, course support, membership help, feedback">
+    <link rel="canonical" href="https://nextuptech.org/contact/">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="../index.html" class="flex items-center min-w-0">
+                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="../index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="../memberships/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="index.html" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-6">Contact Us</h1>
+                <p class="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+                    We're here to help! Get in touch with our support team for assistance with courses, templates, memberships, or any questions you may have.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-yellow-400 text-indigo-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                        Get Support
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-900 transition duration-300">
+                        View FAQ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+                <p class="text-xl text-gray-600">Choose the best way to reach us</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 contact-methods-grid">
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Email Support</h3>
+                    <p class="text-gray-600 mb-4">Get help via email with detailed responses</p>
+                    <div class="mb-4">
+                        <p class="text-blue-600 font-semibold">info@nextuptech.org</p>
+                        <p class="text-sm text-gray-500 mt-2">Response within 24 hours</p>
+                    </div>
+                    <button id="emailSupportBtn" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                        Send Email
+                    </button>
+                </div>
+                
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-phone text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Phone Support</h3>
+                    <p class="text-gray-600 mb-4">Speak directly with our support team</p>
+                    <div class="mb-4">
+                        <p class="text-green-600 font-semibold">+1 (416) 555-0123</p>
+                        <p class="text-sm text-gray-500 mt-2">Mon-Fri, 9 AM - 6 PM EST</p>
+                    </div>
+                    <button id="phoneSupportBtn" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300">
+                        Call Now
+                    </button>
+                </div>
+                
+                <div class="text-center p-8 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i class="fas fa-comments text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Live Chat</h3>
+                    <p class="text-gray-600 mb-4">Chat with us in real-time</p>
+                    <div class="mb-4">
+                        <p class="text-purple-600 font-semibold">Online Now</p>
+                        <p class="text-sm text-gray-500 mt-2">Available 24/7</p>
+                    </div>
+                    <button id="liveChatBtn" class="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-300">
+                        Start Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Send us a Message</h2>
+                <p class="text-xl text-gray-600">Fill out the form below and we'll get back to you as soon as possible</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+                        <select id="subject" name="subject" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Select a subject</option>
+                            <option value="course-support">Course Support</option>
+                            <option value="template-help">Template Help</option>
+                            <option value="membership-issue">Membership Issue</option>
+                            <option value="technical-support">Technical Support</option>
+                            <option value="billing-question">Billing Question</option>
+                            <option value="general-inquiry">General Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Please describe your question or issue in detail..." required></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="newsletter" name="newsletter" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="newsletter" class="ml-2 block text-sm text-gray-700">
+                            I would like to receive updates about new courses, templates, and special offers
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Find quick answers to common questions</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">How do I access my purchased courses?</h3>
+                    <p class="text-gray-600">After purchasing a course, you'll receive an email with access instructions. You can also log into your account and go to the "My Courses" section to access all your purchased content.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">What file formats are available for templates?</h3>
+                    <p class="text-gray-600">Our templates are available in multiple formats including Figma, Adobe XD, Sketch, and code formats (HTML, CSS, React, Vue.js). Each product page specifies the available formats.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">How do I activate my digital membership?</h3>
+                    <p class="text-gray-600">Digital memberships are activated through license keys or email-linked accounts. You'll receive detailed activation instructions via email after purchase.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">What is your refund policy?</h3>
+                    <p class="text-gray-600">We offer a 30-day money-back guarantee for courses and digital products. Digital memberships and software licenses are generally non-refundable due to their nature.</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Do you offer group discounts?</h3>
+                    <p class="text-gray-600">Yes, we offer special pricing for teams and organizations. Contact our sales team at sales@nextuptech.org for custom pricing and volume discounts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Information -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Office</h2>
+                <p class="text-xl text-gray-600">Visit us at our headquarters</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">NextUpTech Headquarters</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Address</p>
+                                <p class="text-gray-600">123 Bay Street<br>Toronto, ON M5H 2Y2<br>Canada</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Phone</p>
+                                <p class="text-gray-600">+1 (416) 555-0123</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Email</p>
+                                <p class="text-gray-600">info@nextuptech.org</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-blue-600 mt-1 mr-3"></i>
+                            <div>
+                                <p class="font-semibold text-gray-900">Business Hours</p>
+                                <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST<br>Saturday: 10:00 AM - 4:00 PM EST<br>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-8 text-white">
+                    <h3 class="text-2xl font-bold mb-6">Get Directions</h3>
+                    <p class="text-blue-100 mb-6">Our office is conveniently located in the heart of downtown Toronto, easily accessible by public transportation (TTC) and with ample parking available.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-subway text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold">Public Transit</p>
+                                <p class="text-blue-100 text-sm">King Station (TTC Line 1)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-car text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold">Parking</p>
+                                <p class="text-blue-100 text-sm">Free parking available on-site</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-wheelchair text-2xl mr-4"></i>
+                            <div>
+                                <p class="font-semibold">Accessibility</p>
+                                <p class="text-blue-100 text-sm">Fully accessible building</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-xl mb-8 text-blue-100">Join thousands of developers who are already learning and growing with NextUpTech</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    Browse Courses
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    View Templates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="../index.html" class="flex items-center">
+                            <img src="../assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Support -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Support</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Contact Us</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Help Center</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">FAQ</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Status Page</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../courses/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Courses</a></li>
+                        <li><a href="../templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="../memberships/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Memberships</a></li>
+                        <li><a href="../blog/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="../privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="../terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="../cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include modals and scripts -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="../cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/script.js"></script>
+    
+    <!-- Contact Methods Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Email Support Button
+            const emailSupportBtn = document.getElementById('emailSupportBtn');
+            if (emailSupportBtn) {
+                emailSupportBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    try {
+                        // Open default email client with pre-filled subject
+                        const subject = encodeURIComponent('Support Request - NextUpTech');
+                        const body = encodeURIComponent('Hello NextUpTech Support Team,\n\nI need help with:\n\n[Please describe your issue here]\n\nThank you!');
+                        const mailtoLink = `mailto:info@nextuptech.org?subject=${subject}&body=${body}`;
+                        
+                        // Try to open email client
+                        window.location.href = mailtoLink;
+                        
+                        // Fallback: Show email address if mailto fails
+                        setTimeout(() => {
+                            if (confirm('If your email client didn\'t open, please copy this email address:\n\ninfo@nextuptech.org\n\nClick OK to copy to clipboard.')) {
+                                navigator.clipboard.writeText('info@nextuptech.org').then(() => {
+                                    alert('Email address copied to clipboard!');
+                                }).catch(() => {
+                                    alert('Please manually copy: info@nextuptech.org');
+                                });
+                            }
+                        }, 1000);
+                        
+                    } catch (error) {
+                        console.error('Email functionality error:', error);
+                        alert('Please email us at: info@nextuptech.org\n\nSubject: Support Request - NextUpTech');
+                    }
+                });
+            }
+
+            // Phone Support Button
+            const phoneSupportBtn = document.getElementById('phoneSupportBtn');
+            if (phoneSupportBtn) {
+                phoneSupportBtn.addEventListener('click', function() {
+                    // Open phone dialer with the support number
+                    window.location.href = 'tel:+14165550123';
+                });
+            }
+
+            // Live Chat Button
+            const liveChatBtn = document.getElementById('liveChatBtn');
+            if (liveChatBtn) {
+                liveChatBtn.addEventListener('click', function() {
+                    // Simulate opening a chat window
+                    alert('Live chat is currently offline. Please use email support or call us during business hours.\n\nEmail: info@nextuptech.org\nPhone: +1 (416) 555-0123');
+                    
+                    // Alternative: Open a simple chat modal
+                    // showChatModal();
+                });
+            }
+        });
+
+        // Optional: Function to show a chat modal (for future implementation)
+        function showChatModal() {
+            const chatModal = document.createElement('div');
+            chatModal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+            chatModal.innerHTML = `
+                <div class="bg-white rounded-xl max-w-md w-full p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-gray-900">Live Chat</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4 h-48 overflow-y-auto">
+                        <p class="text-sm text-gray-600">Chat is currently offline. Please use email or phone support.</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <input type="text" placeholder="Type your message..." class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300" disabled>
+                            Send
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(chatModal);
+        }
+    </script>
+</body>
+</html>

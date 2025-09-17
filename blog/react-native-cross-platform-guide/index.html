@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Cross-Platform Apps with React Native: A Complete Guide | NextUpTech</title>
+    <meta name="description" content="Learn how to create powerful mobile applications that work seamlessly on both iOS and Android using React Native. Complete guide with best practices and real-world examples.">
+    <meta name="keywords" content="react native, cross-platform development, mobile app development, iOS Android, mobile programming, app development guide">
+    <link rel="canonical" href="https://nextuptech.org/blog/react-native-cross-platform-guide/">
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="../../index.html" class="flex items-center min-w-0">
+                        <img src="../../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="../../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="../../index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="../index.html" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="bg-gradient-to-br from-green-900 via-green-700 to-green-900 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Mobile Development</span>
+                    <span class="ml-4 text-gray-300">January 12, 2024</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Building Cross-Platform Apps with React Native: A Complete Guide</h1>
+                <p class="text-xl text-gray-200 mb-8">
+                    Learn how to create powerful mobile applications that work seamlessly on both iOS and Android using React Native.
+                </p>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+                        MR
+                    </div>
+                    <div class="ml-4 text-left">
+                        <h3 class="font-semibold">Mike Rodriguez</h3>
+                        <p class="text-gray-300">Lead Developer at Microsoft</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl text-gray-600 mb-8">
+                    React Native has revolutionized mobile app development by allowing developers to build native mobile applications using JavaScript and React. This comprehensive guide will walk you through everything you need to know to create cross-platform apps that perform beautifully on both iOS and Android.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Why Choose React Native?</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    React Native offers several compelling advantages for mobile app development. Unlike hybrid frameworks that render web views, React Native compiles to native components, providing near-native performance while maintaining the productivity benefits of a single codebase.
+                </p>
+
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+                    <h3 class="text-xl font-semibold text-green-900 mb-3">Key Benefits</h3>
+                    <ul class="text-green-800 space-y-2">
+                        <li>• Single codebase for iOS and Android</li>
+                        <li>• Near-native performance</li>
+                        <li>• Hot reloading for faster development</li>
+                        <li>• Large community and ecosystem</li>
+                        <li>• Reusable components and logic</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Setting Up Your Development Environment</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Before diving into React Native development, you'll need to set up your development environment. This includes installing Node.js, React Native CLI, and platform-specific tools.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Prerequisites</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li class="text-gray-700">Node.js (version 14 or higher)</li>
+                    <li class="text-gray-700">React Native CLI</li>
+                    <li class="text-gray-700">Xcode (for iOS development)</li>
+                    <li class="text-gray-700">Android Studio (for Android development)</li>
+                    <li class="text-gray-700">Java Development Kit (JDK)</li>
+                </ul>
+
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Installation Commands</h3>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code># Install React Native CLI globally
+npm install -g @react-native-community/cli
+
+# Create a new React Native project
+npx react-native init MyApp
+
+# Navigate to project directory
+cd MyApp
+
+# Install dependencies
+npm install
+
+# Run on iOS
+npx react-native run-ios
+
+# Run on Android
+npx react-native run-android</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Understanding React Native Architecture</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    React Native uses a bridge to communicate between JavaScript and native code. Understanding this architecture is crucial for building performant applications and debugging issues effectively.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Core Components</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li class="text-gray-700"><strong>JavaScript Thread:</strong> Runs your React Native JavaScript code</li>
+                    <li class="text-gray-700"><strong>Native Thread:</strong> Handles UI rendering and native functionality</li>
+                    <li class="text-gray-700"><strong>Bridge:</strong> Facilitates communication between threads</li>
+                    <li class="text-gray-700"><strong>Shadow Thread:</strong> Calculates layouts and styles</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Building Your First App</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Let's create a simple todo app to demonstrate React Native concepts. This will cover state management, navigation, and styling.
+                </p>
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-blue-900 mb-3">Todo App Structure</h3>
+                    <pre class="bg-gray-800 text-blue-400 p-4 rounded text-sm overflow-x-auto"><code>import React, { useState } from 'react';
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    FlatList,
+    StyleSheet,
+} from 'react-native';
+
+const TodoApp = () => {
+    const [todos, setTodos] = useState([]);
+    const [text, setText] = useState('');
+
+    const addTodo = () => {
+        if (text.trim()) {
+            setTodos([...todos, { id: Date.now(), text, completed: false }]);
+            setText('');
+        }
+    };
+
+    const toggleTodo = (id) => {
+        setTodos(todos.map(todo =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        ));
+    };
+
+    return (
+        &lt;View style={styles.container}&gt;
+            &lt;Text style={styles.title}&gt;My Todo App&lt;/Text&gt;
+            &lt;View style={styles.inputContainer}&gt;
+                &lt;TextInput
+                    style={styles.input}
+                    value={text}
+                    onChangeText={setText}
+                    placeholder="Add a new todo"
+                /&gt;
+                &lt;TouchableOpacity style={styles.button} onPress={addTodo}&gt;
+                    &lt;Text style={styles.buttonText}&gt;Add&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+            &lt;/View&gt;
+            &lt;FlatList
+                data={todos}
+                keyExtractor={(item) =&gt; item.id.toString()}
+                renderItem={({ item }) =&gt; (
+                    &lt;TouchableOpacity
+                        style={[styles.todoItem, item.completed &&amp; styles.completed]}
+                        onPress={() =&gt; toggleTodo(item.id)}
+                    &gt;
+                        &lt;Text style={styles.todoText}&gt;{item.text}&lt;/Text&gt;
+                    &lt;/TouchableOpacity&gt;
+                )}
+            /&gt;
+        &lt;/View&gt;
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#f5f5f5',
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+    },
+    inputContainer: {
+        flexDirection: 'row',
+        marginBottom: 20,
+    },
+    input: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: '#ddd',
+        padding: 10,
+        marginRight: 10,
+        borderRadius: 5,
+        backgroundColor: 'white',
+    },
+    button: {
+        backgroundColor: '#007AFF',
+        padding: 10,
+        borderRadius: 5,
+        justifyContent: 'center',
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    todoItem: {
+        backgroundColor: 'white',
+        padding: 15,
+        marginBottom: 10,
+        borderRadius: 5,
+        borderLeftWidth: 4,
+        borderLeftColor: '#007AFF',
+    },
+    completed: {
+        opacity: 0.6,
+        borderLeftColor: '#28a745',
+    },
+    todoText: {
+        fontSize: 16,
+    },
+});
+
+export default TodoApp;</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Navigation in React Native</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Navigation is a crucial aspect of mobile app development. React Navigation is the most popular navigation library for React Native, providing a comprehensive solution for handling navigation patterns.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Installing React Navigation</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code># Install React Navigation
+npm install @react-navigation/native @react-navigation/stack
+
+# Install required peer dependencies
+npm install react-native-screens react-native-safe-area-context
+
+# For iOS, install pods
+cd ios && pod install && cd ..</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Styling and Layout</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    React Native uses a subset of CSS properties for styling, with some key differences from web development. Understanding Flexbox is essential for creating responsive layouts.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Key Styling Concepts</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li class="text-gray-700"><strong>Flexbox:</strong> Primary layout system for React Native</li>
+                    <li class="text-gray-700"><strong>Dimensions:</strong> Use Dimensions API for responsive design</li>
+                    <li class="text-gray-700"><strong>Platform-specific styles:</strong> Platform.select() for OS-specific styling</li>
+                    <li class="text-gray-700"><strong>StyleSheet:</strong> Optimized styling with StyleSheet.create()</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Performance Optimization</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Performance is crucial for mobile apps. Here are key strategies to optimize your React Native applications:
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-yellow-900 mb-3">Performance Tips</h3>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li>• Use FlatList for large lists instead of ScrollView</li>
+                        <li>• Implement proper keyExtractor for list items</li>
+                        <li>• Use React.memo() for component optimization</li>
+                        <li>• Optimize images with proper sizing</li>
+                        <li>• Minimize bridge communication</li>
+                        <li>• Use native modules for heavy computations</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Your React Native App</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Testing is essential for maintaining code quality and ensuring your app works correctly across different devices and scenarios.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Testing Strategies</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li class="text-gray-700"><strong>Unit Tests:</strong> Test individual components and functions</li>
+                    <li class="text-gray-700"><strong>Integration Tests:</strong> Test component interactions</li>
+                    <li class="text-gray-700"><strong>E2E Tests:</strong> Test complete user workflows</li>
+                    <li class="text-gray-700"><strong>Device Testing:</strong> Test on real devices and simulators</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Deployment and Distribution</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Once your app is ready, you'll need to build and deploy it to app stores. This process involves creating production builds and following platform-specific guidelines.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Build Process</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">iOS Deployment</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code># Build for iOS
+npx react-native run-ios --configuration Release
+
+# Archive for App Store
+# Use Xcode to archive and upload to App Store Connect</code></pre>
+                    
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3 mt-6">Android Deployment</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code># Generate signed APK
+cd android
+./gradlew assembleRelease
+
+# Generate AAB for Play Store
+./gradlew bundleRelease</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Common Pitfalls and Best Practices</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Learning from common mistakes can save you significant time and frustration. Here are some best practices to follow:
+                </p>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Common Mistakes to Avoid</h3>
+                    <ul class="text-red-800 space-y-2">
+                        <li>• Not handling keyboard dismissal properly</li>
+                        <li>• Using ScrollView for large lists</li>
+                        <li>• Not optimizing images for mobile</li>
+                        <li>• Ignoring platform-specific UI guidelines</li>
+                        <li>• Not testing on real devices</li>
+                        <li>• Overusing console.log in production</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    React Native offers an excellent balance between development efficiency and native performance. By following the practices outlined in this guide, you can build robust, performant cross-platform mobile applications that provide a great user experience on both iOS and Android.
+                </p>
+
+                <p class="text-gray-700 mb-8">
+                    Remember that mobile development is an iterative process. Start with simple projects, gradually add complexity, and always prioritize user experience and performance. The React Native ecosystem is constantly evolving, so stay updated with the latest best practices and community recommendations.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">About the Author</h3>
+                    <p class="text-gray-700">
+                        Mike Rodriguez is a Lead Developer at Microsoft with over 8 years of experience in mobile development. He specializes in React Native, iOS, and Android development, and has contributed to numerous open-source projects. Follow him on Twitter @mikemobile for more mobile development insights.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Related Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 related-articles-grid">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">The Future of AI in Web Development</h3>
+                        <p class="text-gray-600 mb-4">Explore how artificial intelligence is revolutionizing web development in 2024.</p>
+                        <a href="../ai-web-development-2024/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Mastering TypeScript: Advanced Patterns</h3>
+                        <p class="text-gray-600 mb-4">Dive deep into TypeScript's advanced features and learn how to write more maintainable code.</p>
+                        <a href="../typescript-advanced-patterns/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-database text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Database Optimization Techniques</h3>
+                        <p class="text-gray-600 mb-4">Discover proven strategies to optimize your database queries and improve performance.</p>
+                        <a href="../database-optimization-techniques/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="../../index.html" class="flex items-center">
+                            <img src="../../assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blog Categories -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Blog Categories</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Web Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Mobile Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">AI & Machine Learning</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Cloud Computing</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../../courses/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Courses</a></li>
+                        <li><a href="../../templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="../../memberships/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Memberships</a></li>
+                        <li><a href="../../contact/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="../../privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="../../terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="../../cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include modals and scripts -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="../../cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>

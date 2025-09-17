@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Systems: Creating Consistent and Scalable User Interfaces | NextUpTech</title>
+    <meta name="description" content="Learn how to build comprehensive design systems that ensure consistency across your entire product ecosystem. UI/UX design patterns, component libraries, and design tokens.">
+    <meta name="keywords" content="design systems, UI consistency, component libraries, design tokens, UX design, user interface, design patterns">
+    <link rel="canonical" href="https://nextuptech.org/blog/design-systems-ui-consistency/">
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 min-w-0">
+                <div class="flex items-center min-w-0 flex-shrink-0">
+                    <a href="../../index.html" class="flex items-center min-w-0">
+                        <img src="../../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                    </a>
+                </div>
+                <div class="hidden md:block flex-1">
+                    <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
+                        <a href="../../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
+                    <button id="loginBtn" class="bg-blue-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300 whitespace-nowrap">
+                        Login
+                    </button>
+                    <button id="registerBtn" class="bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition duration-300 whitespace-nowrap">
+                        Register
+                    </button>
+                    <div id="userMenu" class="hidden items-center space-x-2">
+                        <span id="userName" class="text-gray-700 font-medium text-sm truncate max-w-20"></span>
+                        <button id="logoutBtn" class="text-gray-500 hover:text-red-600 text-sm whitespace-nowrap">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden flex-shrink-0">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 p-2">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+                <a href="../../index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="../../courses/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Courses</a>
+                <a href="../../templates/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Templates</a>
+                <a href="../../memberships/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Memberships</a>
+                <a href="../index.html" class="text-gray-900 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="../../contact/index.html" class="text-gray-500 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <section class="bg-gradient-to-br from-yellow-900 via-yellow-800 to-red-900 text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-6">
+                    <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">UI/UX Design</span>
+                    <span class="ml-4 text-gray-300">January 5, 2024</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">Design Systems: Creating Consistent and Scalable User Interfaces</h1>
+                <p class="text-xl text-gray-200 mb-8">
+                    Learn how to build comprehensive design systems that ensure consistency across your entire product ecosystem.
+                </p>
+                <div class="flex items-center justify-center">
+                    <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold">
+                        LW
+                    </div>
+                    <div class="ml-4 text-left">
+                        <h3 class="font-semibold">Lisa Wang</h3>
+                        <p class="text-gray-300">Brand Designer at Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl text-gray-600 mb-8">
+                    A well-designed design system is the foundation of any successful digital product. It ensures consistency, improves efficiency, and creates a cohesive user experience across all touchpoints. This comprehensive guide will walk you through building a design system that scales with your organization.
+                </p>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">What is a Design System?</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    A design system is a collection of reusable components, guided by clear standards, that can be assembled together to build any number of applications. It's more than just a style guide or component library—it's a living system that evolves with your product and team.
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h3 class="text-xl font-semibold text-yellow-900 mb-3">Key Components of a Design System</h3>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li>• <strong>Design Tokens:</strong> Visual design attributes like colors, typography, and spacing</li>
+                        <li>• <strong>Component Library:</strong> Reusable UI components with consistent behavior</li>
+                        <li>• <strong>Patterns:</strong> Common UI patterns and layouts</li>
+                        <li>• <strong>Guidelines:</strong> Usage instructions and best practices</li>
+                        <li>• <strong>Tools:</strong> Design and development tools for implementation</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Building Your Design Foundation</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    The foundation of any design system starts with establishing core design principles and creating a comprehensive set of design tokens that define your visual language.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Design Principles</h3>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-blue-900 mb-3">Core Principles</h4>
+                    <ul class="text-blue-800 space-y-2">
+                        <li><strong>Consistency:</strong> All elements should follow the same visual and interaction patterns</li>
+                        <li><strong>Accessibility:</strong> Design should be inclusive and usable by everyone</li>
+                        <li><strong>Scalability:</strong> Components should work across different contexts and screen sizes</li>
+                        <li><strong>Efficiency:</strong> Reduce design and development time through reusability</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Design Tokens</h3>
+                <p class="text-gray-700 mb-6">
+                    Design tokens are the visual design atoms of your design system. They define the values for colors, typography, spacing, and other design attributes.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Color Tokens Example</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>// Primary Colors
+$color-primary-50: #eff6ff;
+$color-primary-100: #dbeafe;
+$color-primary-500: #3b82f6;
+$color-primary-900: #1e3a8a;
+
+// Semantic Colors
+$color-success: #10b981;
+$color-warning: #f59e0b;
+$color-error: #ef4444;
+$color-info: #3b82f6;
+
+// Neutral Colors
+$color-gray-50: #f9fafb;
+$color-gray-100: #f3f4f6;
+$color-gray-500: #6b7280;
+$color-gray-900: #111827;</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Creating Your Component Library</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    A component library is the heart of your design system. It provides developers with pre-built, tested components that implement your design standards.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Component Hierarchy</h3>
+                <div class="bg-purple-50 border-l-4 border-purple-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-purple-900 mb-3">Atomic Design Methodology</h4>
+                    <ul class="text-purple-800 space-y-2">
+                        <li><strong>Atoms:</strong> Basic building blocks (buttons, inputs, labels)</li>
+                        <li><strong>Molecules:</strong> Simple groups of atoms (search form, navigation item)</li>
+                        <li><strong>Organisms:</strong> Complex UI components (header, sidebar, product grid)</li>
+                        <li><strong>Templates:</strong> Page-level layouts without content</li>
+                        <li><strong>Pages:</strong> Specific instances of templates with real content</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Component Documentation</h3>
+                <p class="text-gray-700 mb-6">
+                    Each component should be thoroughly documented with usage examples, props, and design guidelines.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Button Component Example</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>/**
+ * Button Component
+ * 
+ * A versatile button component with multiple variants and sizes.
+ * 
+ * @param {string} variant - Button style variant
+ * @param {string} size - Button size
+ * @param {boolean} disabled - Whether the button is disabled
+ * @param {function} onClick - Click handler function
+ */
+
+interface ButtonProps {
+  variant: 'primary' | 'secondary' | 'outline' | 'ghost';
+  size: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  onClick?: () => void;
+  children: React.ReactNode;
+}
+
+const Button: React.FC&lt;ButtonProps&gt; = ({
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  onClick,
+  children
+}) => {
+  // Component implementation
+};</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Typography and Spacing Systems</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Consistent typography and spacing are crucial for creating a cohesive visual hierarchy and improving readability across your application.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Typography Scale</h3>
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-green-900 mb-3">Type Scale Example</h4>
+                    <ul class="text-green-800 space-y-2">
+                        <li><strong>Heading 1:</strong> 48px / 3rem - Font weight: 700</li>
+                        <li><strong>Heading 2:</strong> 36px / 2.25rem - Font weight: 600</li>
+                        <li><strong>Heading 3:</strong> 24px / 1.5rem - Font weight: 600</li>
+                        <li><strong>Body Large:</strong> 18px / 1.125rem - Font weight: 400</li>
+                        <li><strong>Body:</strong> 16px / 1rem - Font weight: 400</li>
+                        <li><strong>Caption:</strong> 14px / 0.875rem - Font weight: 400</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Spacing System</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">8-Point Grid System</h4>
+                    <pre class="bg-gray-800 text-green-400 p-4 rounded text-sm overflow-x-auto"><code>// Spacing tokens based on 8px grid
+$spacing-xs: 4px;   // 0.25rem
+$spacing-sm: 8px;   // 0.5rem
+$spacing-md: 16px;  // 1rem
+$spacing-lg: 24px;  // 1.5rem
+$spacing-xl: 32px;  // 2rem
+$spacing-2xl: 48px; // 3rem
+$spacing-3xl: 64px; // 4rem
+
+// Usage in components
+.padding-sm { padding: $spacing-sm; }
+.padding-md { padding: $spacing-md; }
+.margin-lg { margin: $spacing-lg; }</code></pre>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Implementation and Maintenance</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    A design system is only as good as its implementation and adoption. Proper tooling and processes are essential for maintaining consistency and ensuring widespread adoption.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Design Tools Integration</h3>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-yellow-900 mb-3">Recommended Tools</h4>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li><strong>Figma:</strong> For design and prototyping</li>
+                        <li><strong>Storybook:</strong> For component documentation and testing</li>
+                        <li><strong>Style Dictionary:</strong> For managing design tokens</li>
+                        <li><strong>GitHub:</strong> For version control and collaboration</li>
+                        <li><strong>Notion/Confluence:</strong> For guidelines and documentation</li>
+                    </ul>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Governance and Updates</h3>
+                <p class="text-gray-700 mb-6">
+                    Establish clear processes for updating and maintaining your design system to ensure it remains relevant and useful.
+                </p>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-red-900 mb-3">Maintenance Best Practices</h3>
+                    <ul class="text-red-800 space-y-2">
+                        <li>• Regular design system reviews and updates</li>
+                        <li>• Clear contribution guidelines for team members</li>
+                        <li>• Automated testing for component consistency</li>
+                        <li>• Version control and change management</li>
+                        <li>• Regular team training and onboarding</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Measuring Success</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Track the impact of your design system to ensure it's delivering value and identify areas for improvement.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Key Metrics</h3>
+                <div class="bg-gray-100 rounded-lg p-6 mb-8">
+                    <h4 class="text-lg font-semibold text-gray-900 mb-3">Success Indicators</h4>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• <strong>Adoption Rate:</strong> Percentage of teams using the design system</li>
+                        <li>• <strong>Development Speed:</strong> Time saved in building new features</li>
+                        <li>• <strong>Consistency Score:</strong> Visual consistency across applications</li>
+                        <li>• <strong>Bug Reduction:</strong> Fewer UI-related bugs and issues</li>
+                        <li>• <strong>Designer Efficiency:</strong> Time saved in design process</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Common Pitfalls and Solutions</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Learn from common mistakes to avoid them in your own design system implementation.
+                </p>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-yellow-900 mb-3">Common Pitfalls</h3>
+                    <ul class="text-yellow-800 space-y-2">
+                        <li>• <strong>Over-engineering:</strong> Creating too many components or variations</li>
+                        <li>• <strong>Poor Documentation:</strong> Inadequate usage guidelines and examples</li>
+                        <li>• <strong>Lack of Buy-in:</strong> Insufficient team adoption and support</li>
+                        <li>• <strong>Inflexibility:</strong> Too rigid to accommodate different use cases</li>
+                        <li>• <strong>Maintenance Overhead:</strong> Not planning for ongoing maintenance</li>
+                    </ul>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Building a successful design system requires careful planning, strong collaboration, and ongoing maintenance. Start small with core components and gradually expand as your team and needs grow.
+                </p>
+
+                <p class="text-gray-700 mb-8">
+                    Remember that a design system is a living document that should evolve with your product and team. Regular feedback, updates, and improvements are essential for maintaining its value and relevance over time.
+                </p>
+
+                <div class="bg-gray-100 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">About the Author</h3>
+                    <p class="text-gray-700">
+                        Lisa Wang is a Brand Designer at Google with over 8 years of experience in design systems and user experience design. She specializes in creating scalable design systems for large organizations and has contributed to design systems at Google, Airbnb, and other leading tech companies. Follow her on Twitter @lisadesign for more design insights.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Related Articles -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Related Articles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 related-articles-grid">
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">The Future of AI in Web Development</h3>
+                        <p class="text-gray-600 mb-4">Explore how artificial intelligence is revolutionizing web development in 2024.</p>
+                        <a href="../ai-web-development-2024/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Building Cross-Platform Apps with React Native</h3>
+                        <p class="text-gray-600 mb-4">Learn how to create powerful mobile applications that work seamlessly on both iOS and Android.</p>
+                        <a href="../react-native-cross-platform-guide/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-code text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Mastering TypeScript: Advanced Patterns</h3>
+                        <p class="text-gray-600 mb-4">Dive deep into TypeScript's advanced features and learn how to write more maintainable code.</p>
+                        <a href="../typescript-advanced-patterns/index.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                            Read More →
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 sm:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <!-- Company Info -->
+                <div class="sm:col-span-2 lg:col-span-2 text-center sm:text-left">
+                    <div class="flex items-center justify-center sm:justify-start mb-4">
+                        <a href="../../index.html" class="flex items-center">
+                            <img src="../../assets/images/logo-white.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
+                            <span class="ml-2 text-xl sm:text-2xl font-bold">NextUpTech</span>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm sm:text-base max-w-md leading-relaxed mx-auto sm:mx-0">
+                        Empowering developers worldwide with premium courses, cutting-edge tools, and exclusive tech memberships.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center sm:justify-start">
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-linkedin text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-github text-lg sm:text-xl"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-gray-400 hover:text-white transition duration-300 p-2 hover:bg-gray-800 rounded-lg">
+                            <i class="fab fa-youtube text-lg sm:text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blog Categories -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Blog Categories</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Web Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Mobile Development</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">AI & Machine Learning</li>
+                        <li class="text-gray-400 text-sm sm:text-base block py-1">Cloud Computing</li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div class="text-center sm:text-left">
+                    <h3 class="text-base sm:text-lg font-semibold mb-4 text-white">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../../courses/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Courses</a></li>
+                        <li><a href="../../templates/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Templates</a></li>
+                        <li><a href="../../memberships/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Memberships</a></li>
+                        <li><a href="../../contact/index.html" class="text-gray-400 hover:text-white transition duration-300 text-sm sm:text-base block py-1">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8">
+                <div class="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:justify-between sm:items-center">
+                    <p class="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
+                        © 2025 NextUpTech. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+                        <a href="../../privacy/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Privacy Policy</a>
+                        <a href="../../terms/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Terms of Service</a>
+                        <a href="../../cookies/index.html" class="text-gray-400 hover:text-white text-xs sm:text-sm transition duration-300 py-1">Cookies Policy</a>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs sm:text-sm mt-4 text-center leading-relaxed">
+                    We are not an affiliate agency. All products are sold independently through our platform.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Include modals and scripts -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Login</h3>
+                <button id="closeLoginModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="loginEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="loginPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Login
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Don't have an account? <button id="showRegisterModal" class="text-blue-600 hover:text-blue-800">Register here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Create Account</h3>
+                <button id="closeRegisterModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="registerForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="registerName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="registerEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                    <input type="password" id="registerPassword" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+                    Create Account
+                </button>
+            </form>
+            <p class="text-center text-sm text-gray-600 mt-4">
+                Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
+            </p>
+        </div>
+    </div>
+
+    <div id="cookiesBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-40">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p class="text-sm mb-4 md:mb-0">
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                <a href="../../cookies/index.html" class="text-blue-400 hover:text-blue-300 underline">Learn more</a>
+            </p>
+            <div class="flex space-x-4">
+                <button id="acceptCookies" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700 transition duration-300">
+                    Accept
+                </button>
+                <button id="declineCookies" class="border border-gray-600 text-white px-4 py-2 rounded text-sm hover:bg-gray-800 transition duration-300">
+                    Decline
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/script.js"></script>
+</body>
+</html>
