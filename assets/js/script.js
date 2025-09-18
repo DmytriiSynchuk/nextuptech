@@ -115,6 +115,9 @@ function initBookingSystem() {
     if (isLoggedIn) {
         const user = JSON.parse(isLoggedIn);
         showUserMenu(user.name);
+    } else {
+        // Ensure the "Register Now & Get Bonus" button is enabled if user is not logged in
+        enableRegisterNowBonusButton();
     }
     
     // Login form
@@ -176,6 +179,215 @@ function initBookingSystem() {
     
     // Add Book Now functionality to all buttons
     addBookNowListeners();
+    
+    // Add event listener to "Register Now & Get Bonus" button
+    const registerNowBonusBtn = document.getElementById('registerNowBonusBtn');
+    if (registerNowBonusBtn) {
+        registerNowBonusBtn.addEventListener('click', function() {
+            if (!this.disabled) {
+                const registerModal = document.getElementById('registerModal');
+                if (registerModal) {
+                    registerModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+        });
+    }
+    
+    // Add event listener to "Start Learning Today" button (Home page)
+    const startLearningBtn = document.getElementById('startLearningBtn');
+    if (startLearningBtn) {
+        startLearningBtn.addEventListener('click', function() {
+            // Scroll to Popular Courses section
+            const popularCoursesSection = document.getElementById('popularCourses');
+            if (popularCoursesSection) {
+                popularCoursesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+    
+    // Add event listener to "Start Learning Today" button (Courses page)
+    const coursesStartLearningBtn = document.getElementById('coursesStartLearningBtn');
+    if (coursesStartLearningBtn) {
+        coursesStartLearningBtn.addEventListener('click', function() {
+            // Scroll to Featured Courses section
+            const featuredCoursesSection = document.getElementById('featuredCourses');
+            if (featuredCoursesSection) {
+                featuredCoursesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+    
+    // Add event listeners to "Browse Templates" buttons (Templates page)
+    const templatesBrowseBtns = document.querySelectorAll('[templates-browse-btn]');
+    templatesBrowseBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            // Scroll to Featured Templates section
+            const featuredTemplatesSection = document.getElementById('featuredTemplates');
+            if (featuredTemplatesSection) {
+                featuredTemplatesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add event listeners to "Browse Memberships" buttons (Memberships page)
+    const membershipsBrowseBtns = document.querySelectorAll('[memberships-browse-btn]');
+    membershipsBrowseBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            // Scroll to Featured Memberships section
+            const featuredMembershipsSection = document.getElementById('featuredMemberships');
+            if (featuredMembershipsSection) {
+                featuredMembershipsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add event listeners to "Read Latest Posts" buttons (Blog page)
+    const blogReadPostsBtns = document.querySelectorAll('[blog-read-posts-btn]');
+    blogReadPostsBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            // Scroll to Latest Articles section
+            const latestArticlesSection = document.getElementById('latestArticles');
+            if (latestArticlesSection) {
+                latestArticlesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Newsletter subscription functionality
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('newsletterEmail');
+            const subscribeBtn = document.getElementById('newsletterSubscribeBtn');
+            const email = emailInput.value.trim();
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const originalText = subscribeBtn.textContent;
+            subscribeBtn.textContent = 'Subscribing...';
+            subscribeBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Store subscription in localStorage
+                const subscriptions = JSON.parse(localStorage.getItem('nextuptech_newsletter_subscriptions') || '[]');
+                if (!subscriptions.includes(email)) {
+                    subscriptions.push(email);
+                    localStorage.setItem('nextuptech_newsletter_subscriptions', JSON.stringify(subscriptions));
+                    
+                    // Show success message
+                    showNotification('Successfully subscribed to our newsletter!', 'success');
+                    
+                    // Clear form
+                    emailInput.value = '';
+                } else {
+                    showNotification('This email is already subscribed to our newsletter.', 'info');
+                }
+                
+                // Reset button
+                subscribeBtn.textContent = originalText;
+                subscribeBtn.disabled = false;
+            }, 1500);
+        });
+    }
+    
+    // Contact page button functionality
+    // Get Support button - scroll to Get in Touch section
+    const contactGetSupportBtns = document.querySelectorAll('[contact-get-support-btn]');
+    contactGetSupportBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            const getInTouchSection = document.getElementById('getInTouch');
+            if (getInTouchSection) {
+                getInTouchSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // View FAQ button - scroll to FAQ section
+    const contactViewFaqBtns = document.querySelectorAll('[contact-view-faq-btn]');
+    contactViewFaqBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            const faqSection = document.getElementById('frequentlyAskedQuestions');
+            if (faqSection) {
+                faqSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Browse Courses button - redirect to Courses page
+    const contactBrowseCoursesBtns = document.querySelectorAll('[contact-browse-courses-btn]');
+    contactBrowseCoursesBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = '../courses/index.html';
+        });
+    });
+    
+    // View Templates button - redirect to Templates page
+    const contactViewTemplatesBtns = document.querySelectorAll('[contact-view-templates-btn]');
+    contactViewTemplatesBtns.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = '../templates/index.html';
+        });
+    });
+    
+    // Contact form submission with confirmation notification
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form elements
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission delay
+            setTimeout(() => {
+                // Show success notification
+                showNotification('Message sent successfully! We\'ll get back to you soon.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
 }
 
 function showUserMenu(name) {
@@ -188,6 +400,9 @@ function showUserMenu(name) {
     if (registerBtn) registerBtn.classList.add('hidden');
     if (userMenu) userMenu.classList.remove('hidden');
     if (userName) userName.textContent = name;
+    
+    // Disable the "Register Now & Get Bonus" button
+    disableRegisterNowBonusButton();
 }
 
 function hideUserMenu() {
@@ -198,6 +413,31 @@ function hideUserMenu() {
     if (loginBtn) loginBtn.classList.remove('hidden');
     if (registerBtn) registerBtn.classList.remove('hidden');
     if (userMenu) userMenu.classList.add('hidden');
+    
+    // Enable the "Register Now & Get Bonus" button
+    enableRegisterNowBonusButton();
+}
+
+// Function to disable the "Register Now & Get Bonus" button
+function disableRegisterNowBonusButton() {
+    const registerNowBonusBtn = document.getElementById('registerNowBonusBtn');
+    if (registerNowBonusBtn) {
+        registerNowBonusBtn.disabled = true;
+        registerNowBonusBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        registerNowBonusBtn.classList.remove('hover:bg-yellow-300');
+        registerNowBonusBtn.textContent = 'Already Registered';
+    }
+}
+
+// Function to enable the "Register Now & Get Bonus" button
+function enableRegisterNowBonusButton() {
+    const registerNowBonusBtn = document.getElementById('registerNowBonusBtn');
+    if (registerNowBonusBtn) {
+        registerNowBonusBtn.disabled = false;
+        registerNowBonusBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        registerNowBonusBtn.classList.add('hover:bg-yellow-300');
+        registerNowBonusBtn.textContent = 'Register Now & Get Bonus';
+    }
 }
 
 function addBookNowListeners() {

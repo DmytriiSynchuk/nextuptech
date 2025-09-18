@@ -15,23 +15,22 @@
 </head>
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 min-w-0">
+            <div class="flex justify-between items-center h-20 min-w-0">
                 <div class="flex items-center min-w-0 flex-shrink-0">
                     <a href="../index.html" class="flex items-center min-w-0">
-                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
-                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-16 sm:w-16 flex-shrink-0">
                     </a>
                 </div>
                 <div class="hidden md:block flex-1">
                     <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
-                        <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
-                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
-                        <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
-                        <a href="../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
-                        <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
-                        <a href="../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                        <a href="../index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="index.html" class="text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../templates/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../memberships/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../blog/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../contact/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
@@ -76,12 +75,12 @@
                     Learn from industry experts with hands-on projects, real-world applications, and personalized mentorship.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    <button id="coursesStartLearningBtn" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
                         Start Learning Today
                     </button>
-                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition duration-300">
-                        Watch Free Preview
-                    </button>
+                    <a href="../contact/index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition duration-300">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -98,33 +97,24 @@
                 <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition duration-300">
                     <i class="fas fa-code text-4xl mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">Web Development</h3>
-                    <p class="text-blue-100 mb-6">Master frontend and backend technologies</p>
-                    <button class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                        Explore Courses
-                    </button>
+                    <p class="text-blue-100">Master frontend and backend technologies</p>
                 </div>
                 <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition duration-300">
                     <i class="fas fa-mobile-alt text-4xl mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">Mobile Development</h3>
-                    <p class="text-green-100 mb-6">Build iOS and Android applications</p>
-                    <button class="bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                        Explore Courses
-                    </button>
+                    <p class="text-green-100">Build iOS and Android applications</p>
                 </div>
                 <div class="bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-8 text-white text-center hover:shadow-xl transition duration-300">
                     <i class="fas fa-brain text-4xl mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4">AI & Machine Learning</h3>
-                    <p class="text-red-100 mb-6">Dive into artificial intelligence and data science</p>
-                    <button class="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                        Explore Courses
-                    </button>
+                    <p class="text-red-100">Dive into artificial intelligence and data science</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Featured Courses -->
-    <section class="py-16 bg-gray-50 featured-courses">
+    <section id="featuredCourses" class="py-16 bg-gray-50 featured-courses">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Courses</h2>
@@ -176,12 +166,12 @@
                             </div>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                                Enroll Now
+                            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300" data-book-now>
+                                Book Now
                             </button>
-                            <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300">
-                                Preview Course
-                            </button>
+                            <a href="../contact/index.html" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300">
+                                Preview
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -192,8 +182,8 @@
                 <h3 class="text-2xl font-bold text-gray-900 mb-6">Meet Your Instructors</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 instructors-grid">
                     <div class="text-center">
-                        <div class="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                            JS
+                        <div class="instructor-avatar rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                            <img src="../assets/images/jessica-smith.jpg" alt="Jessica Smith" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">Jessica Smith</h4>
                         <p class="text-gray-600 mb-3">Senior Full-Stack Developer at Google</p>
@@ -211,8 +201,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <div class="w-20 h-20 bg-green-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                            MR
+                        <div class="instructor-avatar rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                            <img src="../assets/images/mike-rodriguez.jpg" alt="Mike Rodriguez" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">Mike Rodriguez</h4>
                         <p class="text-gray-600 mb-3">Lead Developer at Microsoft</p>
@@ -230,8 +220,8 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <div class="w-20 h-20 bg-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                            AL
+                        <div class="instructor-avatar rounded-full mx-auto mb-4 overflow-hidden flex items-center justify-center">
+                            <img src="../assets/images/alex-lee.jpg" alt="Alex Lee" class="w-full h-full object-cover">
                         </div>
                         <h4 class="text-xl font-semibold text-gray-900 mb-2">Alex Lee</h4>
                         <p class="text-gray-600 mb-3">CTO at TechStartup Inc.</p>
@@ -308,12 +298,12 @@
             <h2 class="text-4xl font-bold mb-4">Ready to Start Your Coding Journey?</h2>
             <p class="text-xl mb-8 text-blue-100">Join thousands of developers who've transformed their careers</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300" data-book-now>
                     Start Free Trial
                 </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
-                    View All Courses
-                </button>
+                <a href="../contact/index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                    Contact Us
+                </a>
             </div>
         </div>
     </section>

@@ -15,23 +15,22 @@
 </head>
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 min-w-0">
+            <div class="flex justify-between items-center h-20 min-w-0">
                 <div class="flex items-center min-w-0 flex-shrink-0">
                     <a href="../index.html" class="flex items-center min-w-0">
-                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
-                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-16 sm:w-16 flex-shrink-0">
                     </a>
                 </div>
                 <div class="hidden md:block flex-1">
                     <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
-                        <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
-                        <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
-                        <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
-                        <a href="../memberships/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
-                        <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
-                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                        <a href="../index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../courses/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../templates/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="../memberships/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../blog/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="index.html" class="text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
@@ -76,10 +75,10 @@
                     We're here to help! Get in touch with our support team for assistance with courses, templates, memberships, or any questions you may have.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-yellow-400 text-indigo-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    <button class="bg-yellow-400 text-indigo-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300" contact-get-support-btn>
                         Get Support
                     </button>
-                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-900 transition duration-300">
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-indigo-900 transition duration-300" contact-view-faq-btn>
                         View FAQ
                     </button>
                 </div>
@@ -88,7 +87,7 @@
     </section>
 
     <!-- Contact Methods -->
-    <section class="py-16 bg-white">
+    <section id="getInTouch" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
@@ -213,7 +212,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-16 bg-white">
+    <section id="frequentlyAskedQuestions" class="py-16 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
@@ -329,10 +328,10 @@
             <h2 class="text-4xl font-bold mb-4">Ready to Get Started?</h2>
             <p class="text-xl mb-8 text-blue-100">Join thousands of developers who are already learning and growing with NextUpTech</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                <button class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300" contact-browse-courses-btn>
                     Browse Courses
                 </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300" contact-view-templates-btn>
                     View Templates
                 </button>
             </div>

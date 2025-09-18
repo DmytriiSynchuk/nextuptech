@@ -15,23 +15,22 @@
 </head>
 <body class="font-inter bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-gray-900 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 min-w-0">
+            <div class="flex justify-between items-center h-20 min-w-0">
                 <div class="flex items-center min-w-0 flex-shrink-0">
                     <a href="../index.html" class="flex items-center min-w-0">
-                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-10 sm:w-10 flex-shrink-0">
-                        <span class="ml-2 text-lg sm:text-xl lg:text-2xl font-bold text-blue-600 truncate">NextUpTech</span>
+                        <img src="../assets/images/logo.png" alt="NextUpTech Logo" class="h-8 w-8 sm:h-16 sm:w-16 flex-shrink-0">
                     </a>
                 </div>
                 <div class="hidden md:block flex-1">
                     <div class="ml-10 flex items-baseline space-x-2 lg:space-x-4">
-                        <a href="../index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
-                        <a href="../courses/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
-                        <a href="../templates/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
-                        <a href="index.html" class="text-gray-900 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
-                        <a href="../blog/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
-                        <a href="../contact/index.html" class="text-gray-500 hover:text-blue-600 px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
+                        <a href="../index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Home</a>
+                        <a href="../courses/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Courses</a>
+                        <a href="../templates/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Templates</a>
+                        <a href="index.html" class="text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Memberships</a>
+                        <a href="../blog/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Blog</a>
+                        <a href="../contact/index.html" class="text-gray-300 hover:text-white px-2 py-2 rounded-md text-sm font-medium whitespace-nowrap">Contact</a>
                     </div>
                 </div>
                 <div class="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
@@ -76,12 +75,12 @@
                     Access premium software licenses and digital services at exclusive discounted rates. Save thousands annually on essential tech tools.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
+                    <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300" memberships-browse-btn>
                         Browse Memberships
                     </button>
-                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-900 transition duration-300">
-                        View Savings Calculator
-                    </button>
+                    <a href="../contact/index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-900 transition duration-300">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -128,7 +127,7 @@
     </section>
 
     <!-- Featured Memberships -->
-    <section class="py-16 bg-gray-50 featured-memberships">
+    <section id="featuredMemberships" class="py-16 bg-gray-50 featured-memberships">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Memberships</h2>
@@ -182,12 +181,12 @@
                             </div>
                         </div>
                         <div class="flex space-x-4">
-                            <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition duration-300">
-                                Get License
+                            <button class="bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-700 transition duration-300" data-book-now>
+                                Book Now
                             </button>
-                            <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300">
-                                Learn More
-                            </button>
+                            <a href="../contact/index.html" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300">
+                                Preview
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -213,8 +212,8 @@
                                 <div class="text-sm text-gray-500 line-through">$99</div>
                             </div>
                         </div>
-                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -237,8 +236,8 @@
                                 <div class="text-sm text-gray-500 line-through">$99</div>
                             </div>
                         </div>
-                        <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -261,8 +260,8 @@
                                 <div class="text-sm text-gray-500 line-through">$99</div>
                             </div>
                         </div>
-                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -285,8 +284,8 @@
                                 <div class="text-sm text-gray-500 line-through">$119</div>
                             </div>
                         </div>
-                        <button class="w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -309,8 +308,8 @@
                                 <div class="text-sm text-gray-500 line-through">$143</div>
                             </div>
                         </div>
-                        <button class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -333,8 +332,8 @@
                                 <div class="text-sm text-gray-500 line-through">$119</div>
                             </div>
                         </div>
-                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300">
-                            Get License
+                        <button class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-300" data-book-now>
+                            Book Now
                         </button>
                     </div>
                 </div>
@@ -453,12 +452,12 @@
             <h2 class="text-4xl font-bold mb-4">Start Saving on Premium Software Today</h2>
             <p class="text-xl mb-8 text-green-100">Join thousands of users who save thousands annually</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300">
-                    Browse All Memberships
+                <button class="bg-yellow-400 text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition duration-300" memberships-browse-btn>
+                    Browse Memberships
                 </button>
-                <button class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-600 transition duration-300">
-                    Calculate Your Savings
-                </button>
+                <a href="../contact/index.html" class="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-green-600 transition duration-300">
+                    Contact Us
+                </a>
             </div>
         </div>
     </section>
@@ -592,6 +591,55 @@
             <p class="text-center text-sm text-gray-600 mt-4">
                 Already have an account? <button id="showLoginModal" class="text-blue-600 hover:text-blue-800">Login here</button>
             </p>
+        </div>
+    </div>
+
+    <div id="bookingModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-900">Book Session</h3>
+                <button id="closeBookingModal" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="bookingForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input type="text" id="bookingName" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <input type="email" id="bookingEmail" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <input type="tel" id="bookingPhone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Booking Date</label>
+                    <input type="date" id="bookingDate" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Comments (Optional)</label>
+                    <textarea id="bookingComments" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                    Book Session
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-8 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <i class="fas fa-check text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Booking Confirmed!</h3>
+            <p class="text-gray-600 mb-6">We'll get back to you ASAP via email.</p>
+            <button id="closeConfirmationModal" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                Close
+            </button>
         </div>
     </div>
 
