@@ -209,24 +209,6 @@ function initBookingSystem() {
         });
     }
     
-    // Add event listeners to "Contact Us" buttons (Home page)
-    const contactUsButtons = document.querySelectorAll('[contact-us]');
-    contactUsButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Redirect to Contact page
-            window.location.href = 'contact/index.html';
-        });
-    });
-    
-    // Add event listeners to "Contact Us" buttons (Other pages)
-    const contactUsBtns = document.querySelectorAll('[contact-us-btn]');
-    contactUsBtns.forEach(button => {
-        button.addEventListener('click', function() {
-            // Redirect to Contact page
-            window.location.href = '../contact/index.html';
-        });
-    });
-    
     // Add event listener to "Start Learning Today" button (Courses page)
     const coursesStartLearningBtn = document.getElementById('coursesStartLearningBtn');
     if (coursesStartLearningBtn) {
